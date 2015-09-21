@@ -1,0 +1,11 @@
+<% if subscription.blank? %>
+  <h2>You need a subscirption for full effect!</h2>
+<% else %>
+  <% subscription.attributes.each_pair do |k,v| %>
+    <strong>
+      <%= k %>
+      :
+    </strong>
+    <%= v %>
+  <% end %>
+<% end %>

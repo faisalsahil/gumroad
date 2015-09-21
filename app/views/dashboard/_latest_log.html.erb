@@ -1,0 +1,11 @@
+<% @latest_log_lines.each do |event| %>
+  <p>
+    <span class='timestamp'><%= "#{event.created_at.to_s} : " %></span>
+    <span class='service-name'><%= "#{event.service} : " %></span>
+    <% if event.highlight %>
+      <span class='highlight'><%= event.message %></span>
+    <% else %>
+      <span><%= event.message %></span>
+    <% end %>
+  </p>
+<% end %>

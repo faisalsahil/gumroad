@@ -1,0 +1,31 @@
+<%= form_for @cardinfo, :html => { :class => 'form-horizontal info-submission-form' } do |f| %>
+
+  <div id ="choose-plan-div">
+    <h4 class="alert alert-info">Choose a plan</h4>
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr style="background-color: lightgrey;">
+          <th><%= "Number of pings"%></th>
+          <th><%= "ping_charges" %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @plans.each do |plan| %>
+          <tr>
+            <td><%= f.radio_button :plan_id, plan.id %><%= plan.ping_count %>
+            </td>
+            <td><%= "$" %><%= plan.ping_charges %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+      <div class="form-actions">
+      <%= f.button :submit, :class => 'btn btn-primary' %>
+      <%= link_to "Cancel",ping_path(@ping),:class => 'btn' %>
+    </div>
+  </div>
+<% end %>
+
+</div>

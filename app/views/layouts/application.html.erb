@@ -1,0 +1,43 @@
+<% #= html_tag :class => "no-js", :lang => "en" do %>
+<!DOCTYPE html>
+<%= favicon_link_tag 'favicon.ico'%>
+
+<%= render "application/head" %>
+<body class= <%= controller.controller_name%> >
+<%= render "application/header" %>
+<div class='navbar navbar-fixed-top navbar-inverse'>
+  <div class='navbar-inner'>
+    <div class='container'>
+      <a class='btn btn-navbar' data-target='.nav-collapse' data-toggle='collapse'>
+        <span class='icon-bar'></span>
+        <span class='icon-bar'></span>
+        <span class='icon-bar'></span>
+      </a>
+      <a class='brand' href='#'>
+        <img src="/assets/favicon.ico">
+      </a>
+      <!-- = link_to image_tag('logo.png', :class => 'brand logo-size'), root_path -->
+      <div class='nav-collapse'>
+        <ul class='nav'>
+          <%=render "shared/navigation" %>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class='row'>
+    <div class='span4 left-sidebar'>
+      <%= yield :left_menu %>
+    </div>
+    <div class='span8'>
+      <%=  yield  %>
+    </div>
+    <div class='span2'>
+      <%= yield :right_menu %>
+    </div>
+</div>
+<div class='clearfix'></div>
+<%= render "application/footer" unless user_signed_in? %>
+</body>
+<% #end %>

@@ -1,0 +1,23 @@
+<%- model_class = Cardinfo -%>
+<div class="page-header alert alert-success">
+  <h3>You card details</h3>
+</div>
+
+<dl class="dl-horizontal well" style="background-color: lemonchiffon;">
+  <dt><strong><%= model_class.human_attribute_name(:card_number) %>:</strong></dt>
+  <dd><%= @cardinfo.card_number %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:card_code) %>:</strong></dt>
+  <dd><%= @cardinfo.card_code %></dd>
+</dl>
+
+<!-- <div class="form-actions"> -->
+  <%#= link_to t('.back', :default => t("helpers.links.back")),
+              cardinfos_path, :class => 'btn'  %>
+  <%#= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_cardinfo_path(@cardinfo), :class => 'btn' %>
+  <%#= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              cardinfo_path(@cardinfo),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+<!-- </div> -->

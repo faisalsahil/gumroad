@@ -1,0 +1,18 @@
+<% if current_user.admin? %>
+  <p>
+    <%= link_to 'Run Free Plan', '#', :class => 'btn btn-mini run-rake-task' %>
+    <%= image_tag "fancybox_loading.gif", class: "wait-rake-task-response" %>
+  </p>
+  <p>
+    <%= link_to 'Run BumpUp Plan', '#', :class => 'btn btn-mini run-rake-task' %>
+    <%= image_tag "fancybox_loading.gif", class: "wait-rake-task-response" %>
+  </p>
+  <p>
+    <%= link_to 'Run Unlimited Plan', '#', :class => 'btn btn-mini run-rake-task' %>
+    <%= image_tag "fancybox_loading.gif", class: "wait-rake-task-response" %>
+  </p>
+  <p>
+    <%= link_to 'Run Rule Actions', '#', :class => 'btn btn-primary run-rake-task' %>
+    <%= image_tag "fancybox_loading.gif", class: "wait-rake-task-response" %>
+  </p>
+<% end %>

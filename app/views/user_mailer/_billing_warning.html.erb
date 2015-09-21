@@ -1,0 +1,14 @@
+<% if (@days <  8 ) %>
+    <p>
+      This email is to notify you that you have gone over your Free AbleForm account limit. Please log in and <a href="http://app.ableform.com/plans">upgrade your plan </a>to avoid interruptions to your form submissions.
+    </p>
+
+<% elsif (@days <  14 ) %>
+    <p>
+      This email is to notify you that your AbleForm account has been over the limit for over 7 days and will be suspended if you don't take immediate action. Please log in and <a href="http://app.ableform.com/plans">upgrade your plan </a> to avoid interruptions to your form submissions.
+    </p>
+
+<% else %>
+    <p> Your account has been over the limit for over 2 weeks and has been suspended. Please log in and <a href="http://app.ableform.com/plans">upgrade your plan</a> to avoid interruptions to reactivate your form submissions.</p>
+<% end %>
+

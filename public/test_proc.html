@@ -1,0 +1,342 @@
+<!-- Begin AbleForm Embed Code -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $("form#ableform-embed-form").submit(function(){
+            $(".btn-submit.display").css("visibility", "hidden");
+            var $this = $(this)
+            $.ajax({
+                url: "http://app.ableform.com/forms/submit/1/1?callback=?",
+                dataType: "jsonp",
+                // jsonpCallback: 'callback',
+                processData: true,
+                crossDomain: true,
+                data: $this.serialize(),
+                success: function(data){
+                    if (data == true) {
+                        $(".success1.display").css("visibility", "visible");
+                        $this[0].reset();
+                        $('html, body').animate({ scrollTop: 0 }, 0);
+                    }
+                    else if (data == false) {
+                        $("#show_warning").html("<div class = 'alert alert-warning'><a class='close' data-dismiss='alert'>×</a>This user account is currently not active. Please visit AbleForm.com for more information.</br><a href='http://http://AbleForm.com'>Please visit AbleForm.com</a> </div>")
+                        $this[0].reset();
+                        $('html, body').animate({ scrollTop: 0 }, 0);
+
+                    }
+                    else {
+                        window.location.href = data;
+                    }
+                },
+                error: function(xhr, status, error) {
+                    alert("An AJAX error occured: " + status + "\nError: " + error + " = " + JSON.stringify(xhr));
+                }
+            });
+            return false;
+        });
+    });
+</script>
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css">
+<style>
+    .control-group{float: left;}
+    .control-label{float: left; width: 150px; padding-left: 5px;}
+    .controls{float: left;}
+    .ableform-field-group {clear: both; float: left;}
+    #ableform_embed {display: block;}
+
+    #ableform-embed-form input {
+        display: inline-block;
+        line-height: 27px;
+        margin-bottom: 0px;
+    }
+
+    .select {width: auto}
+    .clear {margin-top: 8px;margin-bottom: 8px;}
+    .heading a {color: black;}
+
+    .heading-sub{
+        color: black;
+        font-size: 1.157142857rem;
+        line-height: 1.146153846;}
+    .heading-sub a {color: black;}
+
+    .display{visibility: hidden;}
+    input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
+        border: 1px solid #CCCCCC !important;
+        border-radius: 4px 4px 4px 4px !important;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset !important;
+        color: #555555 !important;
+        display: inline-block !important;
+        height: 30px !important;
+        line-height: 20px !important;
+        min-height: 15px !important;
+        padding: 4px 6px !important;
+        transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s !important;
+        vertical-align: middle !important;
+    }
+
+    #ableform-embed-form label {
+        display: inline-block;
+        line-height: 27px;
+        width: 145px;
+    }
+    #ableform-embed-form input {
+        display: inline-block;
+        line-height: 27px;
+        margin-bottom: 0px;
+    }
+    #ableform-embed-form .control-group { width: 100%;}
+    .pad_0 {padding-left: 0px;}
+    .marg_b {margin-bottom: 0px !important;}
+
+    #ableform_embed
+    {   background: #FFFFFF;
+        box-shadow: 0 2px 6px rgba(100, 100, 100, 0.3);
+        margin-bottom: 3.42857rem;
+        margin-top: 3.42857rem;
+        padding: 0 2.85714rem;
+    }
+    .heading{
+        font-size: 1.857142857rem;
+        line-height: 1.846153846;
+        color: #515151;
+    }
+    h1.heading { padding-bottom: 11px; border-bottom: 1px solid #EDEDED;} #ableform-embed-form  strong {   font-size: 1.14286rem !important;  line-height: 1.84615 !important; }   #ableform-embed-form { display: inline-block;} .footer a {
+                                                                                                                                                                                                                                      color: #686868;
+                                                                                                                                                                                                                                  } .footer > .site-info { display: inline-block; width: 100%; padding: 25px 0px;border-top:1px solid #EDEDED !important;} #ableform-embed-subscribe {
+                                                                                                                                                                                                                                                                                                                                                               background-color: #E6E6E6 !important;
+                                                                                                                                                                                                                                                                                                                                                               background-image: -moz-linear-gradient(center top , #F4F4F4, #E6E6E6) !important;
+                                                                                                                                                                                                                                                                                                                                                               background-repeat: repeat-x !important;
+                                                                                                                                                                                                                                                                                                                                                               border: 1px solid #D2D2D2 !important;
+                                                                                                                                                                                                                                                                                                                                                               border-radius: 3px 3px 3px 3px !important;
+                                                                                                                                                                                                                                                                                                                                                               box-shadow: 0 1px 2px rgba(64, 64, 64, 0.1) !important;
+                                                                                                                                                                                                                                                                                                                                                               color: #7C7C7C !important;
+                                                                                                                                                                                                                                                                                                                                                               font-size: 0.785714rem !important;
+                                                                                                                                                                                                                                                                                                                                                               font-weight: normal !important;
+                                                                                                                                                                                                                                                                                                                                                               line-height: 1.42857 !important;
+                                                                                                                                                                                                                                                                                                                                                               padding: 0.428571rem 0.714286rem !important;
+                                                                                                                                                                                                                                                                                                                                                           }
+</style>
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css">
+<div class="container">
+<img alt="1" width="1" height="1" src="http://app.ableform.com/forms/submission/1/1">
+<div class="success1 display">
+    <p style="color:red"> Thank you for subscribing! </p>
+</div>
+<div id="show_warning"></div>
+<form action="http://app.ableform.com/forms/submit/1/1" method="post"
+      id='ableform-embed-form' name='ableform-embed-form'>
+<div class="ableform-field-group">
+    <label for="EMAIL">Email Address*</label>
+    <input type="email" value="" name="EMAIL"   required="required" >
+
+</div>
+<div class="ableform-field-group">
+    <label for="FNAME">First Name</label>
+    <input type="text" value="" name="FNAME"  >
+
+</div>
+<div class="ableform-field-group">
+    <label for="LNAME">Last Name</label>
+    <input type="text" value="" name="LNAME"  >
+
+</div>
+<div class="ableform-field-group">
+    <label for="MMERGE3">DATE</label>
+    <input type="date" value="" name="MMERGE3"  >
+
+</div>
+<div class="ableform-field-group">
+    <label for="MMERGE4">ZIP</label>
+    <input type="number" value="" name="MMERGE4"  >
+
+</div>
+<div class="ableform-field-group">
+    <label for="MMERGE5">PHONE</label>
+    <input type="text" value="" name="MMERGE5"  >
+
+</div>
+<div class="ableform-field-group">
+    <label for="MMERGE6">IMAGE</label>
+    <input type="url" value="" name="MMERGE6"  >
+
+</div>
+<div class="ableform-field-group">
+    <label for="MMERGE7">Birthday</label>
+    <input type="hidden" name="birthday" value="MMERGE7">
+    <select class="select" id="date_day" name="day">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+        <option value="13">13</option>
+        <option value="14">14</option>
+        <option value="15">15</option>
+        <option value="16">16</option>
+        <option value="17">17</option>
+        <option selected="selected" value="18">18</option>
+        <option value="19">19</option>
+        <option value="20">20</option>
+        <option value="21">21</option>
+        <option value="22">22</option>
+        <option value="23">23</option>
+        <option value="24">24</option>
+        <option value="25">25</option>
+        <option value="26">26</option>
+        <option value="27">27</option>
+        <option value="28">28</option>
+        <option value="29">29</option>
+        <option value="30">30</option>
+        <option value="31">31</option>
+    </select>
+
+    <select class="select" id="date_month" name="month">
+        <option value="1">January</option>
+        <option value="2">February</option>
+        <option value="3">March</option>
+        <option value="4">April</option>
+        <option value="5">May</option>
+        <option value="6">June</option>
+        <option value="7">July</option>
+        <option selected="selected" value="8">August</option>
+        <option value="9">September</option>
+        <option value="10">October</option>
+        <option value="11">November</option>
+        <option value="12">December</option>
+    </select>
+
+
+</div>
+<div class="ableform-field-group">
+    <label for="STORE">store</label>
+    <input type="text" value="" name="STORE"  >
+
+</div>
+<div class="ableform-field-group">
+
+    <div class='control-group'>
+        <label class='control-label pad_0'><div class="heading-sub"><strong>grouping</strong></div></label>
+        <div class='controls'>
+            <input type="hidden" value="7685" name="grouping[1]"
+                    >
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div class='control-group marg_b'>
+        <div class='controls'>
+            <input type="checkbox" value="group1" name="group[7685][1]"  >
+        </div>
+        <label class='control-label'>group1</label>
+    </div>
+    <div class="clear"></div>
+    <div class='control-group marg_b'>
+        <div class='controls'>
+            <input type="checkbox" value="group2" name="group[7685][2]"  >
+        </div>
+        <label class='control-label'>group2</label>
+    </div>
+    <div class="clear"></div>
+    <div class='control-group marg_b'>
+        <div class='controls'>
+            <input type="checkbox" value="group3" name="group[7685][3]"  >
+        </div>
+        <label class='control-label'>group3</label>
+    </div>
+    <div class="clear"></div>
+</div>
+<div class="ableform-field-group">
+
+    <div class='control-group'>
+        <label class='control-label pad_0'><div class="heading-sub"><strong>Department</strong></div></label>
+        <div class='controls'>
+            <input type="hidden" value="7701" name="grouping[2]"
+                    >
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div class='control-group marg_b'>
+        <div class='controls'>
+            <input type="checkbox" value="cs" name="group[7701][1]"  >
+        </div>
+        <label class='control-label'>cs</label>
+    </div>
+    <div class="clear"></div>
+    <div class='control-group marg_b'>
+        <div class='controls'>
+            <input type="checkbox" value="ce" name="group[7701][2]"  >
+        </div>
+        <label class='control-label'>ce</label>
+    </div>
+    <div class="clear"></div>
+    <div class='control-group marg_b'>
+        <div class='controls'>
+            <input type="checkbox" value="te" name="group[7701][3]"  >
+        </div>
+        <label class='control-label'>te</label>
+    </div>
+    <div class="clear"></div>
+</div>
+<div class="ableform-field-group">
+
+    <div class='control-group'>
+        <label class='control-label pad_0'><div class="heading-sub"><strong>Grouping_wahab_selectbox</strong></div></label>
+        <div class='controls'>
+            <input type="hidden" value="7725" name="grouping[3]"
+                    >
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div class='control-group'>
+        <div class='controls'>
+            <select name="group[7725]">
+                <option>Select</option>
+                <option value="Hello">Hello</option>
+                <option value="Hello1">Hello1</option>
+                <option value="Hello2">Hello2</option>
+            </select>
+        </div>
+    </div>
+</div>
+<div class="ableform-field-group">
+
+    <div class='control-group'>
+        <label class='control-label pad_0'><div class="heading-sub"><strong>radiotype_wahab</strong></div></label>
+        <div class='controls'>
+            <input type="hidden" value="7729" name="grouping[4]"
+                    >
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div class='control-group marg_b'>
+        <div class='controls'>
+            <input type="radio" value="radio1" name="group[7729]" >
+        </div>
+        <label class='control-label'>radio1</label>
+    </div>
+    <div class="clear"></div>
+    <div class='control-group marg_b'>
+        <div class='controls'>
+            <input type="radio" value="radio" name="group[7729]" >
+        </div>
+        <label class='control-label'>radio</label>
+    </div>
+    <div class="clear"></div>
+</div>
+<div class="ableform-field-group" style="margin-bottom: 10px;">
+    <div class="clear"></div>
+    <div class="btn-submit display" style="visibility: visible">
+        <input  type="submit" value="Subscribe" name="subscribe" class="btn btn-success form-button" >
+    </div>
+</div>
+</form>
+</div>
+<!-- End AbleForm Embed Code -->
+                  

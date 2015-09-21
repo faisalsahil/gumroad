@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  ping: 1
+  start_date: 2013-12-09
+  user_id: 1
+
+two:
+  ping: 1
+  start_date: 2013-12-09
+  user_id: 1

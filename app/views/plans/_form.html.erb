@@ -1,0 +1,34 @@
+<%= form_for @plan, :html => { :class => 'form-horizontal' } do |f| %>
+    
+    <div class="control-group">
+      <%= f.label "ID", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :unique_id, :placeholder=>"Enter Unique Id" %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label "Ping Count", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :ping_count, :placeholder=>"Enter Plan" %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label "Amount", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :ping_charges %>
+      </div>
+    </div>
+    <!-- <div class="control-group">
+      <%#= f.label "Interval", :class => 'control-label' %>
+      <div class="controls">
+        <%#= f.select(:interval, INTERVAL_CONSTANT::INTERVAL_PERIOUD) %>
+      </div>
+    </div> -->
+
+  
+  <div class="form-actions">
+    <%= f.submit :submit, :class => 'btn btn-primary',:value=>"Create" %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                plans_path, :class => 'btn' %>
+  </div>
+<% end %>

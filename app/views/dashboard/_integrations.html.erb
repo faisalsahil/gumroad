@@ -1,0 +1,20 @@
+<table class='table table-striped table-bordered'>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Options</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @integrations.each do |integration| %>
+      <tr>
+        <td><%= integration.name %></td>
+        <td>
+          <%= link_to 'Edit', edit_integration_path(integration.id), class: 'btn btn-mini' %>
+          <%= link_to 'Destroy', integration_path(integration.id), :confirm => 'Are you sure?', :method => :delete, class: 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to 'Add New', new_integration_path, :class => 'btn btn-primary btn-primary-main' %>

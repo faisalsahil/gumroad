@@ -1,0 +1,24 @@
+<table class='table table-striped table-bordered' >
+  <thead>
+  <tr>
+    <h3> Account Billing</h3>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><%= link_to "Account Plan", plans_path %></td>
+  </tr>
+
+  <tr>
+    <td>
+      <!--Cuurent User Plan-->
+      <% if @cardinfo.present? %>
+        <%= link_to 'Update Billing Method', update_billing_cardinfo_path(@cardinfo)  %>
+      <% else%>
+        <%= link_to 'Update Billing Method', plans_path,:notice=>"Please Choose A Plan."  %>
+      <% end %>
+    </td>
+  </tr>
+
+  </tbody>
+</table>

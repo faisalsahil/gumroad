@@ -1,0 +1,64 @@
+<%- model_class = Apisetting -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:order_number) %></th>
+      <th><%= model_class.human_attribute_name(:seller_id) %></th>
+      <th><%= model_class.human_attribute_name(:product_id) %></th>
+      <th><%= model_class.human_attribute_name(:product_permalink) %></th>
+      <th><%= model_class.human_attribute_name(:email) %></th>
+      <th><%= model_class.human_attribute_name(:full_name) %></th>
+      <th><%= model_class.human_attribute_name(:price) %></th>
+      <th><%= model_class.human_attribute_name(:variants) %></th>
+      <th><%= model_class.human_attribute_name(:offer_code) %></th>
+      <th><%= model_class.human_attribute_name(:test) %></th>
+      <th><%= model_class.human_attribute_name(:custom_fields) %></th>
+      <th><%= model_class.human_attribute_name(:shipping_information) %></th>
+      <th><%= model_class.human_attribute_name(:is_recurring_charge) %></th>
+      <th><%= model_class.human_attribute_name(:is_preorder_authorization) %></th>
+      <th><%= model_class.human_attribute_name(:user_id) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @apisettings.each do |apisetting| %>
+      <tr>
+        <td><%= link_to apisetting.id, apisetting_path(apisetting) %></td>
+        <td><%= apisetting.order_number %></td>
+        <td><%= apisetting.seller_id %></td>
+        <td><%= apisetting.product_id %></td>
+        <td><%= apisetting.product_permalink %></td>
+        <td><%= apisetting.email %></td>
+        <td><%= apisetting.full_name %></td>
+        <td><%= apisetting.price %></td>
+        <td><%= apisetting.variants %></td>
+        <td><%= apisetting.offer_code %></td>
+        <td><%= apisetting.test %></td>
+        <td><%= apisetting.custom_fields %></td>
+        <td><%= apisetting.shipping_information %></td>
+        <td><%= apisetting.is_recurring_charge %></td>
+        <td><%= apisetting.is_preorder_authorization %></td>
+        <td><%= apisetting.user_id %></td>
+        <td><%=l apisetting.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_apisetting_path(apisetting), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      apisetting_path(apisetting),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_apisetting_path,
+            :class => 'btn btn-primary' %>

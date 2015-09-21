@@ -1,0 +1,25 @@
+<%- model_class = Ping -%>
+<div class="page-header alert alert-success">
+  <h3>Ping Requests.</h3>
+</div>
+
+  <% if @ping.present? %>
+    <% if @plan.present?%>
+      <% if @plan.ping_count < @ping.ping %>
+        <div class="well" >
+          <p class="alert alert-danger" style="width: 69%;">Total number of pings are <%= @ping.ping%>.Upgrade your plan.</p>
+          <%= link_to "Upgrade plan",edit_cardinfo_path(@cardinfo),:class => 'btn btn-primary' %>
+        </div>
+      <% else %>
+        <div class="well">
+          <p class="alert alert-success">Total number of pings are <%= @ping.ping%></p>
+        </div>
+      <% end %>
+        
+    <% end %>
+  <% else %>
+    <div class="alert alert-warning">
+      <h3>There is no ping request yet.</h3>
+    </div>
+  <% end %>    
+

@@ -1,0 +1,54 @@
+<%- model_class = Plan -%>
+<!-- ================================================================================ -->
+<h1></h1>
+<table class='table table-striped table-bordered'>
+  <thead>
+  <tr>
+    <th>Monthly Plan</th>
+    <th>Monthly Pings</th>
+    <th>Select Plan</th>
+    <% if current_user.user_type=="admin" %>
+      <th>Delete Plan</th>
+    <% end %>
+  </tr>
+  </thead>
+  <tbody>
+  <% @plans.each do |myplan| %>
+      <tr>
+        <td>
+          <% if myplan.ping_charges > '0'%>
+            <%= "$ #{myplan.ping_charges}" %>
+          <% else %>
+            <%= "Free" %>
+          <% end %>
+        </td>
+        <td>
+          <%= myplan.ping_count %>
+        </td>
+        <td>
+          <% if @cardinfo && myplan.id == @cardinfo.plan_id %>
+              <button class='btn btn-mini btn-success' disabled type='button'>Current</button>
+          <% elsif current_user.cardinfo.present? %>
+              <%= link_to 'Upgrade', edit_cardinfo_path(@cardinfo,:planid => myplan.id)  , :class => 'btn btn-mini' %>
+          <% else %>
+            <%= link_to 'Upgrade', new_cardinfo_path({:planid => myplan.id}), :class => 'btn btn-mini' %>
+          <%  end %>
+        </td>
+        <% if current_user && current_user.user_type=="admin" %>
+         <td>
+           <%= link_to t('.destroy'
+              plan_path(myplan),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm",
+              :default => 'Are you sure?')) },
+              :class => 'btn btn-danger btn-mini' %>
+         </td> 
+        <% end %>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+
+<!-- upgradeplans_plans_path({:planid => myplan.id }) -->
+<!-- new_subscription_path({:planid => myplan.id }) -->

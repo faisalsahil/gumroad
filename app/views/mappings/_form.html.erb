@@ -1,0 +1,133 @@
+<script type="text/javascript">
+  $(document).ready(function () {
+        $("#mapping_list_id").change(function(){
+          // alert($("#mapping_list_id").val());
+            var listId = $("#mapping_list_id").val();
+            var origin = window.location.origin;
+            window.location.href = origin + '/mappings/load_merge_vars?listid=' + listId;
+        });
+   });
+ </script>  
+<%= form_for @mapping, :html => { :class => 'form-horizontal' } do |f| %>
+ 
+<div class="well" style="background-color: lemonchiffon;"> 
+    <% if @listloaded %>
+        <div class="control-group">
+            <div class="controls">
+                <label>Select List</label>
+                    <%= f.select :list_id, [['Select List', '']].concat(@listloaded.inject([]) {|arr, e| arr <<  [e["name"],e["id"]]}) , :selected => @listId %>
+            </div>
+        </div>
+    <% end %>
+    
+</div>
+<% if @merge_vars.present?%>
+    <div class="well">   
+        <div class="control-group">
+                <%= f.label :order_number, :class => 'control-label' %>
+                <div class="controls">
+                <%= f.select :order_number, [['Do Not Map', 'Nill']].concat(@merge_vars.inject([]) {|arr, e| arr <<  [e["name"],e["tag"]]}) %>
+                  <%#= f.text_field :order_number %>
+                </div>
+        </div>
+        <div class="control-group">
+                <%= f.label :seller_id, :class => 'control-label' %>
+                <div class="controls">
+                <%= f.select :seller_id, [['Do Not Map', 'Nill']].concat(@merge_vars.inject([]) {|arr, e| arr <<  [e["name"],e["tag"]]}) %>
+                  <%#= f.text_field :seller_id %>
+                </div>
+        </div>
+        <div class="control-group">
+                <%= f.label :product_id, :class => 'control-label' %>
+                <div class="controls">
+                <%= f.select :product_id, [['Do Not Map', 'Nill']].concat(@merge_vars.inject([]) {|arr, e| arr <<  [e["name"],e["tag"]]}) %>
+                  <%#= f.text_field :product_id %>
+                </div>
+        </div>
+        <div class="control-group">
+                <%= f.label :product_permalink, :class => 'control-label' %>
+                <div class="controls">
+                <%= f.select :product_permalink, [['Do Not Map', 'Nill']].concat(@merge_vars.inject([]) {|arr, e| arr <<  [e["name"],e["tag"]]}) %>
+                  <%#= f.text_field :product_permalink %>
+                </div>
+        </div>
+        <div class="control-group">
+                <%= f.label :email, :class => 'control-label' %>
+                <div class="controls">
+                <%= f.select :email, [['Do Not Map', 'Nill']].concat(@merge_vars.inject([]) {|arr, e| arr <<  [e["name"],e["tag"]]}) %>
+                  <%#= f.text_field :email %>
+                </div>
+        </div>
+        <div class="control-group">
+                <%= f.label :full_name, :class => 'control-label' %>
+                <div class="controls">
+                <%= f.select :full_name, [['Do Not Map', 'Nill']].concat(@merge_vars.inject([]) {|arr, e| arr <<  [e["name"],e["tag"]]}) %>
+                  <%#= f.text_field :full_name %>
+                </div>
+        </div>
+        <div class="control-group">
+                <%= f.label :price, :class => 'control-label' %>
+                <div class="controls">
+                <%= f.select :price, [['Do Not Map', 'Nill']].concat(@merge_vars.inject([]) {|arr, e| arr <<  [e["name"],e["tag"]]}) %>
+                  <%#= f.text_field :price %>
+                </div>
+        </div>
+        <div class="control-group">
+                <%= f.label :variants, :class => 'control-label' %>
+                <div class="controls">
+                <%= f.select :variants, [['Do Not Map', 'Nill']].concat(@merge_vars.inject([]) {|arr, e| arr <<  [e["name"],e["tag"]]}) %>
+                  <%#= f.text_field :variants %>
+                </div>
+        </div>
+        <div class="control-group">
+                <%= f.label :offer_code, :class => 'control-label' %>
+                <div class="controls">
+                <%= f.select :offer_code, [['Do Not Map', 'Nill']].concat(@merge_vars.inject([]) {|arr, e| arr <<  [e["name"],e["tag"]]}) %>
+                  <%#= f.text_field :offer_code %>
+                </div>
+        </div>
+        <div class="control-group">
+                <%= f.label :test, :class => 'control-label' %>
+                <div class="controls">
+                <%= f.select :test, [['Do Not Map', 'Nill']].concat(@merge_vars.inject([]) {|arr, e| arr <<  [e["name"],e["tag"]]}) %>
+                  <%#= f.text_field :test %>
+                </div>
+        </div>
+        <div class="control-group">
+                <%= f.label :custom_fields, :class => 'control-label' %>
+                <div class="controls">
+                <%= f.select :custom_fields, [['Do Not Map', 'Nill']].concat(@merge_vars.inject([]) {|arr, e| arr <<  [e["name"],e["tag"]]}) %>
+                  <%#= f.text_field :custom_fields %>
+                </div>
+        </div>
+        <div class="control-group">
+                <%= f.label :shipping_information, :class => 'control-label' %>
+                <div class="controls">
+                <%= f.select :shipping_information, [['Do Not Map', 'Nill']].concat(@merge_vars.inject([]) {|arr, e| arr <<  [e["name"],e["tag"]]}) %>
+                  <%#= f.text_field :shipping_information %>
+                </div>
+        </div>
+        <div class="control-group">
+                <%= f.label :is_recurring_charge, :class => 'control-label' %>
+                <div class="controls">
+                <%= f.select :is_recurring_charge, [['Do Not Map', 'Nill']].concat(@merge_vars.inject([]) {|arr, e| arr <<  [e["name"],e["tag"]]}) %>
+                  <%#= f.text_field :is_recurring_charge %>
+                </div>
+        </div>
+        <div class="control-group">
+                <%= f.label :is_preorder_authorization, :class => 'control-label' %>
+                <div class="controls">
+                <%= f.select :is_preorder_authorization, [['Do Not Map', 'Nill']].concat(@merge_vars.inject([]) {|arr, e| arr <<  [e["name"],e["tag"]]}) %>
+                  <%#= f.text_field :is_preorder_authorization %>
+                </div>
+        </div>
+        <div class="form-actions">
+        <%= f.submit :submit, :class => 'btn btn-primary', :value => "Save Changes" %>
+          <%#= f.button :submit, :class => 'btn btn-primary' %>
+          <%#= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                      apisettings_path, :class => 'btn' %>
+        </div>
+    </div>
+<% end %>
+<% end %>
+

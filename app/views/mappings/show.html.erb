@@ -1,0 +1,67 @@
+<%- model_class = Mapping -%>
+<div class="page-header alert alert-success">
+  <%= link_to "Edit",
+              edit_mapping_path(@mapping), :class => 'btn btn-primary pull-right' %>
+  <h3>Mapping Fields</h3>
+</div>
+<div class="well">
+<table class="table table-striped">
+  <tr class="active">
+    <td><strong><%= "Order number" %>:</strong></td>
+    <td><%= @mapping.order_number %></td>
+  </tr>
+  <tr class="success">
+  <td><strong><%= "Seller id" %>:</strong></td>
+  <td><%= @mapping.seller_id %></td>
+  </tr>
+  <tr class="active">
+  <td><strong><%= "product id" %>:</strong></td>
+  <td><%= @mapping.product_id %></td>
+  </tr>
+  <tr class="success">
+  <td><strong><%= "product permalink" %>:</strong></td>
+  <td><%= @mapping.product_permalink %></td>
+  </tr>
+  <tr class="active">
+  <td><strong><%= "Email" %>:</strong></td>
+  <td><%= @mapping.email %></td>
+  </tr>
+  <tr class="success">
+  <td><strong><%= "Full name" %>:</strong></td>
+  <td><%= @mapping.full_name %></td>
+  </tr>
+  <tr class="active">
+  <td><strong><%= "Price" %>:</strong></td>
+  <td><%= @mapping.price %></td>
+  </tr>
+  <tr class="success">
+  <td><strong><%= "Variants" %>:</strong></td>
+  <td><%= @mapping.variants %></td>
+  </tr>
+  <tr class="active">
+  <td><strong><%= "Offer code" %>:</strong></td>
+  <td><%= @mapping.offer_code %></td>
+  </tr>
+  <tr class="success">
+  <td><strong><%= "Test" %>:</strong></td>
+  <td><%= @mapping.test %></td>
+  </tr>
+  <tr class="active">
+  <td><strong><%= "Custom fields" %>:</strong></td>
+  <td><%= @mapping.custom_fields %></td>
+  </tr>
+  <tr class="success">
+  <td><strong><%= "Shipping_information" %>:</strong></td>
+  <td><%= @mapping.shipping_information %></td>
+  </tr>
+  <tr class="active">
+  <td><strong><%= "is_recurring_charge" %>:</strong></td>
+  <td><%= @mapping.is_recurring_charge %></td>
+  </tr>
+  <tr class="success">
+  <td><strong><%= "is_preorder_authorization" %>:</strong></td>
+  <td><%= @mapping.is_preorder_authorization %></td>
+  </tr>
+</table>
+
+</div>

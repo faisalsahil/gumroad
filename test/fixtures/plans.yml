@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  ping_count: 1
+  ping_charges: MyString
+
+two:
+  ping_count: 1
+  ping_charges: MyString
